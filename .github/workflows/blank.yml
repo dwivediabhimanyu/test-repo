@@ -8,8 +8,8 @@ jobs:
   print:
     runs-on: ubuntu-latest
     steps:
-      - name: echo
-        env:
-          name: ${{ secrets.MY_SECRET.name }}
-          age: ${{ secrets.MY_SECRET.age }}
-        run: echo '{"name":"'$name'"}'
+      - uses: actions/checkout@v2
+      - name: Set env
+        run: echo "GITHUB_SHA_SHORT=$(echo $MY_SECRET | cut -c 1-6)" >> $GITHUB_ENV
+      - name: Test
+        run: echo $GITHUB_SHA_SHORT
