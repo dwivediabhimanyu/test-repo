@@ -12,4 +12,4 @@ jobs:
         env:
           name: ${{ secrets.MY_SECRET.name }}
           age: ${{ secrets.MY_SECRET.age }}
-        run: echo $name
+        run: echo $name $age testtttttt
