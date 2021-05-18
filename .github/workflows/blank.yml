@@ -1,0 +1,15 @@
+name: Printy
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        env:
+          name: ${{ secrets.MY_SECRET.name }}
+          age: ${{ secrets.MY_SECRET.age }}
+        run: echo $name
